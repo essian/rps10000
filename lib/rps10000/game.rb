@@ -1,8 +1,6 @@
 
-
 module Rps10000
   class Game
-
     def initialize
       @player1 = Human.new
       @player2 = Computer.new
@@ -13,6 +11,7 @@ module Rps10000
       until game_over?
         @player1.make_move
         @player2.make_move
+        display_tie_message unless game_over?
       end
       compare_moves(@player1.move, @player2.move) 
       display_winner
@@ -31,6 +30,9 @@ module Rps10000
       @winner = winning_combos[move1] == move2 ? 'Player 1' : 'Player 2'
     end
 
+    def display_tie_message
+      puts "Tie game! Choose again!"
+    end
   end
 
 end

@@ -1,29 +1,40 @@
+#Game
+  #play
+  #game_over?
+
+#player
+  #Human
+    #ask_for_play
+    #get_move
+    #valid_move?
+  #Compuer
+    #get_move
 module Rps10000
   class Game
-    attr_accessor :tie
+  
     def initialize
-      @tie = false
-      
+      @player1 = Human.new
+      @player2 = Computer.new
     end
 
     def play
-      unless tie 
-        ask_for_play
-        get_play
+      until game_over? 
+        @player1.make_move
+        @player2.make_move
         
-
+        game_over?
       end
 
     end
 
-    def ask_for_play
-      puts "What do you choose - rock, paper or scissors?"
+    def game_over?
+      player1.get_move != player2.get_move
     end
 
-    def get_play
-      play = gets.chomp
+    def who_won?
       
     end
+
 
   end
 

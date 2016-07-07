@@ -14,5 +14,3 @@ module Rps10000
 
 
 end
-
-Rps10000::play
